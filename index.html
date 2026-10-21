@@ -1,1 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ateliê Perim — Móveis de Luxo & Mesas de Madeira e Resina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background-color: #faf8f5; color: #2e2e2e; line-height: 1.5; scroll-behavior: smooth; }
+    h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 500; letter-spacing: 0.02em; }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+    
+    header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); z-index: 1000; padding: 0.8rem 0; transition: all 0.3s ease; }
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
+    
+    /* DESTAQUE NO NOME ATELIÊ PERIM */
+    .logo { 
+      font-family: 'Cormorant Garamond', serif; 
+      font-size: 2.3rem; 
+      font-weight: 700; 
+      letter-spacing: 0.15em; 
+      text-transform: uppercase; 
+      
+      /* Efeito de gradiente dourado */
+      background: linear-gradient(135deg, #3a2c1f 0%, #b38b6d 50%, #d4af37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      
+      /* Sombra sutil para dar profundidade */
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.02);
+    }
 
+    nav ul { display: flex; gap: 2.5rem; list-style: none; }
+    nav a { text-decoration: none; color: #3a2c1f; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+    nav a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 1.5px; background-color: #b38b6d; transition: width 0.3s; }
+    nav a:hover { color: #b38b6d; }
+    nav a:hover::after { width: 100%; }
+    .menu-toggle { display: none; font-size: 1.5rem; color: #3a2c1f; cursor: pointer; }
+
+    .hero { height: 100vh; min-height: 700px; background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)), url('https://images.unsplash.com/photo-1618220179428-22790b461013?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; position: relative; }
+    .hero-content { max-width: 900px; padding: 2rem; animation: fadeUp 1.2s ease-out; }
+    .hero h1 { font-size: 4.5rem; font-weight: 500; line-height: 1.1; margin-bottom: 1rem; text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3); letter-spacing: 0.02em; }
+    .hero p { font-size: 1.2rem; font-weight: 300; letter-spacing: 0.1em; margin-bottom: 2.5rem; text-transform: uppercase; opacity: 0.9; }
+    .btn { display: inline-block; padding: 1rem 2.8rem; background-color: transparent; border: 1.5px solid #fff; color: #fff; text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.4s; }
+    .btn:hover { background-color: #b38b6d; border-color: #b38b6d; color: #fff; }
+
+    .section-title { text-align: center; margin-bottom: 3rem; }
+    .section-title h2 { font-size: 2.8rem; color: #2e2e2e; margin-bottom: 0.5rem; }
+    .section-title .subtitle { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.2em; color: #b38b6d; font-weight: 500; }
+    .section-title .divider { width: 60px; height: 2px; background-color: #b38b6d; margin: 1.2rem auto 0; }
+
+    .collection-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin: 3rem 0 5rem; }
+    .card { background-color: #fff; box-shadow: 0 15px 30px rgba(0, 0, 0, 0.03); transition: transform 0.4s, box-shadow 0.4s; overflow: hidden; border-radius: 2px; }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 25px 40px rgba(0, 0, 0, 0.08); }
+    .card-img { width: 100%; height: 320px; overflow: hidden; }
+    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s ease; }
+    .card:hover .card-img img { transform: scale(1.05); }
+    .card-info { padding: 1.8rem 1.5rem 2rem; text-align: center; }
+    .card-info h3 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #2e2e2e; }
+    .card-info p { font-size: 0.9rem; color: #7a6a5a; margin-bottom: 0; font-weight: 300; }
+
+    .about-section { display: flex; align-items: center; gap: 4rem; margin: 6rem 0; }
+    .about-text { flex: 1; }
+    .about-text h2 { font-size: 2.8rem; margin-bottom: 1.5rem; color: #2e2e2e; }
+    .about-text p { font-size: 1rem; color: #4e4e4e; margin-bottom: 1.2rem; font-weight: 300; line-height: 1.8; }
+    .about-text .highlight { color: #b38b6d; font-weight: 500; }
+    .about-img { flex: 1; height: 500px; overflow: hidden; box-shadow: 20px 20px 0 -1px #e9e1d8; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 3rem 0 6rem; }
+    .gallery-item { position: relative; height: 250px; overflow: hidden; cursor: pointer; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-item::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.1); opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover::after { opacity: 1; }
+
+    .testimonial { background-color: #f2ede7; padding: 5rem 0; text-align: center; margin: 4rem 0; }
+    .testimonial blockquote { max-width: 800px; margin: 0 auto; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; color: #3a2c1f; line-height: 1.4; font-weight: 400; }
+    .testimonial .author { margin-top: 2rem; font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; color: #b38b6d; font-weight: 500; }
+
+    footer { background-color: #1f1b17; color: #d4c9bc; padding: 3.5rem 0 2rem; }
+    .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
+    .footer-col h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: #fff; margin-bottom: 1.5rem; font-weight: 400; letter-spacing: 0.05em; }
+    .footer-col p, .footer-col a { color: #a79b8e; text-decoration: none; font-size: 0.9rem; font-weight: 300; line-height: 2; transition: color 0.3s; }
+    .footer-col a:hover { color: #b38b6d; }
+    .footer-col ul { list-style: none; }
+    .social-icons { display: flex; gap: 1.2rem; margin-top: 1rem; }
+    .social-icons a { color: #a79b8e; font-size: 1.2rem; transition: color 0.3s; }
+    .social-icons a:hover { color: #b38b6d; }
+    .footer-bottom { border-top: 1px solid #3a332c; padding-top: 2rem; text-align: center; font-size: 0.8rem; color: #6f655b; letter-spacing: 0.05em; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+
+    @media (max-width: 1024px) {
+      .collection-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero h1 { font-size: 3.5rem; }
+      .about-section { flex-direction: column; gap: 2rem; }
+      .about-img { width: 100%; height: 400px; }
+    }
+    @media (max-width: 768px) {
+      .header-content { flex-wrap: wrap; }
+      nav ul { display: none; flex-direction: column; width: 100%; gap: 1.2rem; padding: 1.5rem 0 0.5rem; text-align: center; }
+      nav ul.active { display: flex; }
+      .menu-toggle { display: block; }
+      .hero h1 { font-size: 2.8rem; }
+      .collection-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .testimonial blockquote { font-size: 1.6rem; }
+      .footer-content { flex-direction: column; gap: 2rem; }
+      .about-img { height: 300px; }
+      .logo { font-size: 1.8rem; } /* Ajuste do tamanho no mobile */
+    }
+    @media (max-width: 480px) {
+      .container { padding: 0 1.2rem; }
+      .hero h1 { font-size: 2.2rem; }
+      .section-title h2 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container header-content">
+      <div class="logo">Ateliê Perim</div>
+      <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+      <nav>
+        <ul id="navMenu">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#colecao">Coleção</a></li>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#galeria">Galeria</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <h1>Móveis de Luxo<br>Madeira & Resina</h1>
+        <p>Peças exclusivas que transformam ambientes</p>
+        <a href="#colecao" class="btn">Explorar Coleção</a>
+      </div>
+    </section>
+
+    <section id="colecao" class="container">
+      <div class="section-title">
+        <span class="subtitle">Seleção exclusiva</span>
+        <h2>Peças Icônicas</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="collection-grid">
+        <div class="card">
+          <div class="card-img">
+            <img src="https://mavigadget.com/cdn/shop/files/fde0e12a-0130-4353-9335-ff976e564385.png?v=1781354856&width=2000" alt="Mesa de jantar em madeira e resina">
+          </div>
+          <div class="card-info">
+            <h3>Mesa Oceano</h3>
+            <p>Madeira maciça e resina epóxi azul oceano</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=2070&auto=format&fit=crop" alt="Estofado de luxo">
+          </div>
+          <div class="card-info">
+            <h3>Estofado Madrid</h3>
+            <p>Design contemporâneo e conforto excepcional</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-img">
+            <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?q=80&w=2070&auto=format&fit=crop" alt="Aparador de madeira nobre com detalhes dourados">
+          </div>
+          <div class="card-info">
+            <h3>Aparador Imperial</h3>
+            <p>Madeira nobre e resina dourada</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="container about-section">
+      <div class="about-text">
+        <h2>Artesanato que<br>conta histórias</h2>
+        <p>Cada peça do <span class="highlight">Ateliê Perim</span> nasce da combinação entre a natureza bruta da madeira e a fluidez da resina. Nossos artesãos selecionam madeiras nobres de manejo sustentável e resinas de alta qualidade para criar móveis que são verdadeiras obras de arte.</p>
+        <p>Com design contemporâneo e acabamento impecável, transformamos ambientes em espaços de sofisticação e aconchego. A exclusividade está nos detalhes: veios únicos, transparências e formas orgânicas que só a natureza pode proporcionar.</p>
+        <p>Do ateliê para o seu lar, levamos a essência do luxo artesanal.</p>
+      </div>
+      <div class="about-img">
+        <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=2070&auto=format&fit=crop" alt="Detalhe de mesa de madeira e resina">
+      </div>
+    </section>
+
+    <section id="galeria" class="container">
+      <div class="section-title">
+        <span class="subtitle">Inspirações</span>
+        <h2>Galeria de Ambientes</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2070&auto=format&fit=crop" alt="Sala de jantar de luxo"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Mesa de centro em sala elegante"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2070&auto=format&fit=crop" alt="Cadeira de madeira e resina"></div>
+        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop" alt="Aparador e espelho"></div>
+      </div>
+    </section>
+
+    <section class="testimonial">
+      <div class="container">
+        <blockquote>“A mesa do Ateliê Perim é o coração da nossa casa. A combinação da madeira com a resina é de uma beleza ímpar, e a qualidade do acabamento é impecável.”</blockquote>
+        <div class="author">— Mariana Costa, cliente</div>
+      </div>
+    </section>
+
+    <section id="contato" class="container" style="margin-bottom: 5rem; text-align: center;">
+      <div class="section-title">
+        <span class="subtitle">Fale conosco</span>
+        <h2>Encomende sua peça</h2>
+        <div class="divider"></div>
+        <p style="max-width: 600px; margin: 2rem auto 0; color: #4e4e4e; font-weight: 300;">Entre em contato para agendar uma visita ao nosso showroom ou para conversar sobre um projeto personalizado. Nossa equipe terá prazer em atendê-lo.</p>
+        <a href="#" class="btn" style="margin-top: 2rem; color: #2e2e2e; border-color: #b38b6d; background-color: transparent;">Agendar atendimento</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-col">
+          <h4>Ateliê Perim</h4>
+          <p>Móveis de luxo e peças exclusivas em madeira e resina.<br>Artesania e design em harmonia.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#colecao">Coleção</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#galeria">Galeria</a></li>
+            <li><a href="#contato">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #b38b6d;"></i> Rua das Artes, 123 — São Paulo</p>
+          <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: #b38b6d;"></i> (11) 4000-0000</p>
+          <p><i class="fas fa-envelope" style="margin-right: 8px; color: #b38b6d;"></i> contato@atelieperim.com</p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-pinterest-p"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        &copy; 2025 Ateliê Perim. Todos os direitos reservados. | Design & Artesanato em madeira e resina.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const menuToggle = document.getElementById('menuToggle');
+      const navMenu = document.getElementById('navMenu');
+      if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+          navMenu.classList.toggle('active');
+          const icon = menuToggle.querySelector('i');
+          if (navMenu.classList.contains('active')) {
+            icon.classList.remove('fa-bars');
+            icon.classList.add('fa-times');
+          } else {
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      }
+      document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            navMenu.classList.remove('active');
+            const icon = menuToggle.querySelector('i');
+            icon.classList.remove('fa-times');
+            icon.classList.add('fa-bars');
+          }
+        });
+      });
+      const header = document.querySelector('header');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+          header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+          header.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.05)';
+        } else {
+          header.style.backgroundColor = 'rgba(255, 255, 255, 0.92)';
+          header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.03)';
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
