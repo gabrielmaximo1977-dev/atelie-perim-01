@@ -17,28 +17,21 @@
     header { position: fixed; top: 0; left: 0; width: 100%; background-color: rgba(255, 255, 255, 0.92); backdrop-filter: blur(8px); box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); z-index: 1000; padding: 0.8rem 0; transition: all 0.3s ease; }
     .header-content { display: flex; justify-content: space-between; align-items: center; }
     
-    /* DESTAQUE NO NOME ATELIÊ PERIM */
+    /* NOME DESTACADO */
     .logo { 
       font-family: 'Cormorant Garamond', serif; 
       font-size: 2.3rem; 
       font-weight: 700; 
       letter-spacing: 0.15em; 
       text-transform: uppercase; 
-      
-      /* Efeito de gradiente dourado */
       background: linear-gradient(135deg, #3a2c1f 0%, #b38b6d 50%, #d4af37 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      
-      /* Sombra sutil para dar profundidade */
       text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
       transition: transform 0.3s ease;
     }
-    
-    .logo:hover {
-      transform: scale(1.02);
-    }
+    .logo:hover { transform: scale(1.02); }
 
     nav ul { display: flex; gap: 2.5rem; list-style: none; }
     nav a { text-decoration: none; color: #3a2c1f; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s; position: relative; }
@@ -119,7 +112,7 @@
       .testimonial blockquote { font-size: 1.6rem; }
       .footer-content { flex-direction: column; gap: 2rem; }
       .about-img { height: 300px; }
-      .logo { font-size: 1.8rem; } /* Ajuste do tamanho no mobile */
+      .logo { font-size: 1.8rem; }
     }
     @media (max-width: 480px) {
       .container { padding: 0 1.2rem; }
@@ -254,8 +247,10 @@
         </div>
         <div class="footer-col">
           <h4>Contato</h4>
-          <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: #b38b6d;"></i> Rua das Artes, 123 — São Paulo</p>
-          <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: #b38b6d;"></i> (11) 4000-0000</p>
+          <!-- ENDEREÇO ATUALIZADO AQUI -->
+          <p><i class="fas fa-store" style="margin-right: 8px; color: #b38b6d;"></i> Loja Virtual</p>
+          <!-- NÚMERO ATUALIZADO -->
+          <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: #b38b6d;"></i> (19) 99140-5573</p>
           <p><i class="fas fa-envelope" style="margin-right: 8px; color: #b38b6d;"></i> contato@atelieperim.com</p>
           <div class="social-icons">
             <a href="#"><i class="fab fa-instagram"></i></a>
