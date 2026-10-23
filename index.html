@@ -70,16 +70,27 @@
     .about-img { flex: 1; height: 500px; overflow: hidden; box-shadow: 20px 20px 0 -1px #e9e1d8; }
     .about-img img { width: 100%; height: 100%; object-fit: cover; }
 
+    /* GALERIA */
     .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin: 3rem 0 6rem; }
-    .gallery-item { position: relative; height: 250px; overflow: hidden; cursor: pointer; }
+    .gallery-item { position: relative; display: flex; flex-direction: column; }
+    .gallery-img-wrapper { position: relative; height: 250px; overflow: hidden; cursor: pointer; border-radius: 2px; }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
     .gallery-item:hover img { transform: scale(1.05); }
-    .gallery-item::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.1); opacity: 0; transition: opacity 0.3s; }
-    .gallery-item:hover::after { opacity: 1; }
-
-    .testimonial { background-color: #f2ede7; padding: 5rem 0; text-align: center; margin: 4rem 0; }
-    .testimonial blockquote { max-width: 800px; margin: 0 auto; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-style: italic; color: #3a2c1f; line-height: 1.4; font-weight: 400; }
-    .testimonial .author { margin-top: 2rem; font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; color: #b38b6d; font-weight: 500; }
+    .gallery-item .gallery-img-wrapper::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.1); opacity: 0; transition: opacity 0.3s; }
+    .gallery-item:hover .gallery-img-wrapper::after { opacity: 1; }
+    
+    .gallery-caption {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      color: #3a2c1f;
+      margin-top: 0.8rem;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .gallery-item:hover .gallery-caption { color: #b38b6d; }
 
     footer { background-color: #1f1b17; color: #d4c9bc; padding: 3.5rem 0 2rem; }
     .footer-content { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 3rem; margin-bottom: 3rem; }
@@ -109,7 +120,6 @@
       .hero h1 { font-size: 2.8rem; }
       .collection-grid { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: 1fr; }
-      .testimonial blockquote { font-size: 1.6rem; }
       .footer-content { flex-direction: column; gap: 2rem; }
       .about-img { height: 300px; }
       .logo { font-size: 1.8rem; }
@@ -203,17 +213,39 @@
         <div class="divider"></div>
       </div>
       <div class="gallery-grid">
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=2070&auto=format&fit=crop" alt="Sala de jantar de luxo"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Mesa de centro em sala elegante"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2070&auto=format&fit=crop" alt="Cadeira de madeira e resina"></div>
-        <div class="gallery-item"><img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop" alt="Aparador e espelho"></div>
-      </div>
-    </section>
+        
+        <!-- SUA FOTO AQUI -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="https://github.com/gabrielmaximo1977-dev/atelie-perim-01/blob/main/WhatsApp%20Image%202026-10-23%20at%2011.59.06%20(1).jpeg?raw=true" alt="Sala de jantar com mesa de mármore e cadeiras claras">
+          </div>
+          <div class="gallery-caption">MATHEUS - DONA BELEZA</div>
+        </div>
+        
+        <!-- FOTO 2 -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop" alt="Mesa de centro em sala elegante">
+          </div>
+          <div class="gallery-caption">Sala de Estar</div>
+        </div>
+        
+        <!-- FOTO 3 -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?q=80&w=2070&auto=format&fit=crop" alt="Cadeira de madeira e resina">
+          </div>
+          <div class="gallery-caption">Cadeira Assinatura</div>
+        </div>
+        
+        <!-- FOTO 4 -->
+        <div class="gallery-item">
+          <div class="gallery-img-wrapper">
+            <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2070&auto=format&fit=crop" alt="Aparador e espelho">
+          </div>
+          <div class="gallery-caption">Aparador Imperial</div>
+        </div>
 
-    <section class="testimonial">
-      <div class="container">
-        <blockquote>“A mesa do Ateliê Perim é o coração da nossa casa. A combinação da madeira com a resina é de uma beleza ímpar, e a qualidade do acabamento é impecável.”</blockquote>
-        <div class="author">— Mariana Costa, cliente</div>
       </div>
     </section>
 
@@ -223,7 +255,7 @@
         <h2>Encomende sua peça</h2>
         <div class="divider"></div>
         <p style="max-width: 600px; margin: 2rem auto 0; color: #4e4e4e; font-weight: 300;">Entre em contato para agendar uma visita ao nosso showroom ou para conversar sobre um projeto personalizado. Nossa equipe terá prazer em atendê-lo.</p>
-        <a href="#" class="btn" style="margin-top: 2rem; color: #2e2e2e; border-color: #b38b6d; background-color: transparent;">Agendar atendimento</a>
+        <a href="https://wa.me/5519991405573" target="_blank" class="btn" style="margin-top: 2rem; color: #2e2e2e; border-color: #b38b6d; background-color: transparent;">Agendar atendimento</a>
       </div>
     </section>
   </main>
@@ -247,9 +279,7 @@
         </div>
         <div class="footer-col">
           <h4>Contato</h4>
-          <!-- ENDEREÇO ATUALIZADO AQUI -->
           <p><i class="fas fa-store" style="margin-right: 8px; color: #b38b6d;"></i> Loja Virtual</p>
-          <!-- NÚMERO ATUALIZADO -->
           <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: #b38b6d;"></i> (19) 99140-5573</p>
           <p><i class="fas fa-envelope" style="margin-right: 8px; color: #b38b6d;"></i> contato@atelieperim.com</p>
           <div class="social-icons">
